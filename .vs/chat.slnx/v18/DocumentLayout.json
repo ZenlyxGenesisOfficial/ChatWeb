@@ -1,0 +1,87 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\yehezkiel.gunawan\\Downloads\\VisualStudioComm\\RnD1\\chat\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1E4DE371-D40C-F5CA-EB2F-B2B8A79E0F27}|chat.csproj|c:\\users\\yehezkiel.gunawan\\downloads\\visualstudiocomm\\rnd1\\chat\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E4DE371-D40C-F5CA-EB2F-B2B8A79E0F27}|chat.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E4DE371-D40C-F5CA-EB2F-B2B8A79E0F27}|chat.csproj|c:\\users\\yehezkiel.gunawan\\downloads\\visualstudiocomm\\rnd1\\chat\\components\\pages\\chatview.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1E4DE371-D40C-F5CA-EB2F-B2B8A79E0F27}|chat.csproj|solutionrelative:components\\pages\\chatview.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E4DE371-D40C-F5CA-EB2F-B2B8A79E0F27}|chat.csproj|c:\\users\\yehezkiel.gunawan\\downloads\\visualstudiocomm\\rnd1\\chat\\components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1E4DE371-D40C-F5CA-EB2F-B2B8A79E0F27}|chat.csproj|solutionrelative:components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E4DE371-D40C-F5CA-EB2F-B2B8A79E0F27}|chat.csproj|c:\\users\\yehezkiel.gunawan\\downloads\\visualstudiocomm\\rnd1\\chat\\session\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E4DE371-D40C-F5CA-EB2F-B2B8A79E0F27}|chat.csproj|solutionrelative:session\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Session.cs",
+              "DocumentMoniker": "C:\\Users\\yehezkiel.gunawan\\Downloads\\VisualStudioComm\\RnD1\\chat\\Session\\Session.cs",
+              "RelativeDocumentMoniker": "Session\\Session.cs",
+              "ToolTip": "C:\\Users\\yehezkiel.gunawan\\Downloads\\VisualStudioComm\\RnD1\\chat\\Session\\Session.cs",
+              "RelativeToolTip": "Session\\Session.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAgwBAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-20T04:38:37.565Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Login.razor",
+              "DocumentMoniker": "C:\\Users\\yehezkiel.gunawan\\Downloads\\VisualStudioComm\\RnD1\\chat\\Components\\Pages\\Login.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Login.razor",
+              "ToolTip": "C:\\Users\\yehezkiel.gunawan\\Downloads\\VisualStudioComm\\RnD1\\chat\\Components\\Pages\\Login.razor",
+              "RelativeToolTip": "Components\\Pages\\Login.razor",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAswGkAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-20T02:25:48.223Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ChatView.razor",
+              "DocumentMoniker": "C:\\Users\\yehezkiel.gunawan\\Downloads\\VisualStudioComm\\RnD1\\chat\\Components\\Pages\\ChatView.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\ChatView.razor",
+              "ToolTip": "C:\\Users\\yehezkiel.gunawan\\Downloads\\VisualStudioComm\\RnD1\\chat\\Components\\Pages\\ChatView.razor",
+              "RelativeToolTip": "Components\\Pages\\ChatView.razor",
+              "ViewState": "AgIAALMAAAAAAAAAAAAAAJAAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-19T08:24:43.826Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\yehezkiel.gunawan\\Downloads\\VisualStudioComm\\RnD1\\chat\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\yehezkiel.gunawan\\Downloads\\VisualStudioComm\\RnD1\\chat\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T07:12:57.535Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

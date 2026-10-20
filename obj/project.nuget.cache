@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "dgSpecHash": "6YXnx7XUUJQ=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\yehezkiel.gunawan\\Downloads\\VisualStudioComm\\RnD1\\chat\\chat.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\yehezkiel.gunawan\\.nuget\\packages\\dnsclient\\1.7.0\\dnsclient.1.7.0.nupkg.sha512",
+    "C:\\Users\\yehezkiel.gunawan\\.nuget\\packages\\microsoft.aspnetcore.app.internal.assets\\10.0.12\\microsoft.aspnetcore.app.internal.assets.10.0.12.nupkg.sha512",
+    "C:\\Users\\yehezkiel.gunawan\\.nuget\\packages\\polly\\7.2.3\\polly.7.2.3.nupkg.sha512",
+    "C:\\Users\\yehezkiel.gunawan\\.nuget\\packages\\system.reactive\\6.0.1\\system.reactive.6.0.1.nupkg.sha512",
+    "C:\\Users\\yehezkiel.gunawan\\.nuget\\packages\\xmppdotnet\\3.3.0\\xmppdotnet.3.3.0.nupkg.sha512",
+    "C:\\Users\\yehezkiel.gunawan\\.nuget\\packages\\xmppdotnet.core\\3.3.0\\xmppdotnet.core.3.3.0.nupkg.sha512",
+    "C:\\Users\\yehezkiel.gunawan\\.nuget\\packages\\xmppdotnet.extensions\\3.3.0\\xmppdotnet.extensions.3.3.0.nupkg.sha512",
+    "C:\\Users\\yehezkiel.gunawan\\.nuget\\packages\\xmppdotnet.srv\\3.3.0\\xmppdotnet.srv.3.3.0.nupkg.sha512",
+    "C:\\Users\\yehezkiel.gunawan\\.nuget\\packages\\xmppdotnet.transport.socket\\3.3.0\\xmppdotnet.transport.socket.3.3.0.nupkg.sha512",
+    "C:\\Users\\yehezkiel.gunawan\\.nuget\\packages\\xmppdotnet.transport.websocket\\3.3.0\\xmppdotnet.transport.websocket.3.3.0.nupkg.sha512"
+  ],
+  "logs": []
+}

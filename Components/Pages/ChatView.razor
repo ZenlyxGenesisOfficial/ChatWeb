@@ -1,0 +1,179 @@
+﻿@page "/chatview"
+@using XmppDotNet
+@using System.Xml.Linq
+@using System.Reactive.Linq
+@using System.Reactive.Disposables
+@implements IDisposable
+@inject chat.Session.UserSession UserSession
+@inject XmppClient XmppService
+@inject NavigationManager NavManager
+@rendermode InteractiveServer
+
+<h3>Aplikasi Kolaborasi Chat - Internet Hosting</h3>
+
+<div class="alert alert-success">
+    <strong>Status Jaringan:</strong> @StatusKoneksi
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card p-3">
+            <h5>Mulai Percakapan</h5>
+            <div class="mb-3">
+                <label class="form-label">Masukkan JID Teman (@(string.IsNullOrEmpty(JidTemanTerpilih) ? "Username" : JidTemanTerpilih)):</label>
+                <input type="text" class="form-control" @bind="JidTemanTerpilih" placeholder="username tanpa '@@openfire'" />
+            </div>
+            <p class="text-muted small">
+                Ketik langsung JID teman di atas untuk mulai chat secara dinamis.
+            </p>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <div class="card p-3">
+            <h5>Jendela Obrolan: @(string.IsNullOrEmpty(JidTemanTerpilih) ? "Masukkan JID Teman" : JidTemanTerpilih)</h5>
+
+            <div class="border p-3 bg-light mb-3" style="height: 300px; overflow-y: auto;">
+                @if (ListObrolan.Count == 0)
+                {
+                    <div class="text-muted text-center pt-5">Belum ada percakapan...</div>
+                }
+                @foreach (var chat in ListObrolan)
+                {
+                    <div class="mb-2">
+                        <span class="badge @(chat.ApakahSaya ? "bg-primary" : "bg-secondary")">
+                            @(chat.ApakahSaya ? "Saya" : chat.Nama)
+                        </span>
+                        <small class="text-muted">@chat.Waktu</small>
+                        <p class="p-2 rounded bg-white border shadow-sm">@chat.Teks</p>
+                    </div>
+                }
+            </div>
+
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Ketik pesan di sini..."
+                       @bind="TeksInputPesan" @onkeyup="HandleKeyDown" disabled="@string.IsNullOrEmpty(JidTemanTerpilih)" />
+                <button class="btn btn-primary" @onclick="KirimPesan" disabled="@string.IsNullOrEmpty(JidTemanTerpilih)">Kirim</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private string StatusKoneksi = "Mencoba mengenali jaringan...";
+    private string JidTemanTerpilih = "";
+    private string TeksInputPesan = "";
+    private List<ModelPesan> ListObrolan = new List<ModelPesan>();
+
+    private readonly CompositeDisposable _disposables = new CompositeDisposable();
+
+    protected override void OnInitialized()
+    {
+        if (UserSession.Jid != "" && UserSession.Password != "")
+        {
+            Console.WriteLine("Sebenernya UserService nya ga null");
+        }
+        else
+        {
+            Console.WriteLine("gagal king");
+            Console.WriteLine("Jid: "+UserSession.Jid);
+            Console.WriteLine("Password: "+UserSession.Password);
+            NavManager.NavigateTo("/");
+            return;
+        }
+        var subState = XmppService.StateChanged.Subscribe(state =>
+        {
+            StatusKoneksi = state.ToString();
+            InvokeAsync(StateHasChanged);
+        });
+        _disposables.Add(subState);
+
+        var subChat = XmppService.XmppXElementReceived
+            .Where(element => element.Name.LocalName == "message")
+            .Subscribe(element =>
+            {
+                XElement xmlElement = element as XElement;
+                if (xmlElement != null)
+                {
+                    var bodyNode = xmlElement.Elements().FirstOrDefault(e => e.Name.LocalName == "body");
+                    if (bodyNode != null)
+                    {
+                        string dariOrang = xmlElement.Attribute("from")?.Value ?? "Anonim";
+
+                        if (dariOrang.Contains("/"))
+                        {
+                            dariOrang = dariOrang.Split('/')[0];
+                        }
+
+                        string isiChat = bodyNode.Value;
+
+                        if (!string.IsNullOrEmpty(JidTemanTerpilih) &&
+                            dariOrang.Equals(JidTemanTerpilih.Trim() + "@openfire", StringComparison.OrdinalIgnoreCase))
+                        {
+                            ListObrolan.Add(new ModelPesan
+                            {
+                                Teks = isiChat,
+                                ApakahSaya = false,
+                                Nama = JidTemanTerpilih.Split(".")[0],
+                                Waktu = DateTime.Now.ToString("HH:mm")
+                            });
+                            InvokeAsync(StateHasChanged);
+                        }
+                    }
+                }
+            });
+        _disposables.Add(subChat);
+    }
+
+    private async Task KirimPesan()
+    {
+        if (!string.IsNullOrEmpty(TeksInputPesan) && !string.IsNullOrEmpty(JidTemanTerpilih))
+        {
+            string targetJid = JidTemanTerpilih.Trim() + "@openfire";
+            string pesanKirim = TeksInputPesan;
+
+            TeksInputPesan = "";
+
+            var netXmlElement = new XElement("message",
+                new XAttribute("type", "chat"),
+                new XAttribute("to", targetJid),
+                new XElement("body", pesanKirim)
+            );
+
+            var xmppElement = new XmppDotNet.Xml.XmppXElement(netXmlElement);
+
+            await XmppService.SendAsync(xmppElement);
+
+            ListObrolan.Add(new ModelPesan
+            {
+                Teks = pesanKirim,
+                ApakahSaya = true,
+                Waktu = DateTime.Now.ToString("HH:mm")
+            });
+
+            StateHasChanged();
+        }
+    }
+
+
+    private async Task HandleKeyDown(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            await KirimPesan();
+        }
+    }
+
+    public void Dispose()
+    {
+        _disposables.Dispose();
+    }
+
+    public class ModelPesan
+    {
+        public string Teks { get; set; } = "";
+        public bool ApakahSaya { get; set; }
+        public string Nama { get; set; } = "";
+        public string Waktu { get; set; } = "";
+    }
+}

@@ -1,0 +1,130 @@
+﻿@page "/"
+@using XmppDotNet
+@using System.Reactive.Linq
+@inject XmppClient XmppService
+@inject NavigationManager NavManager
+@inject chat.Session.UserSession UserSession
+@rendermode InteractiveServer
+
+<div class="container flex justify-center items-center h-full">
+    <div class="row justify-content-center w-full transform -translate-y-8">
+        <div class="col-md-5">
+            <form @onsubmit="ProsesLogin" @onsubmit:preventDefault class="card shadow p-4">
+                <h3 class="text-center mb-4">Login Openfire Chat</h3>
+
+                @if (!string.IsNullOrEmpty(PesanError))
+                {
+                    <div class="alert alert-danger">@PesanError</div>
+                }
+
+                <div class="mb-3">
+                    <label class="form-label">Username / JID (Contoh: budi@@openfire)</label>
+                    <input type="text" class="form-control" @bind="InputJid" placeholder="budi@@openfire" disabled="@SedangLoading" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-control" @bind="InputPassword" placeholder="******" disabled="@SedangLoading" />
+                </div>
+
+                <button class="btn btn-primary w-100" type="submit" disabled="@SedangLoading">
+                    @if (SedangLoading)
+                    {
+                        <span class="spinner-border spinner-border-sm me-2"></span> <span>Menghubungkan... Status: @StatusSekarang</span>
+                    }
+                    else
+                    {
+                        <span>Masuk Chat</span>
+                    }
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@code {
+    private string InputJid = "";
+    private string InputPassword = "";
+    private string PesanError = "";
+    private bool SedangLoading = false;
+    private string StatusSekarang = "";
+    private IDisposable? _subState;
+
+    private dynamic loginModel = new System.Dynamic.ExpandoObject();
+
+    private async Task ProsesLogin()
+    {
+        if (string.IsNullOrEmpty(InputJid) || string.IsNullOrEmpty(InputPassword))
+        {
+            PesanError = "Username dan Password tidak boleh kosong!";
+            return;
+        }
+
+        PesanError = "";
+        SedangLoading = true;
+
+        try
+        {
+            XmppService.Jid = InputJid.Trim();
+            XmppService.Password = InputPassword;
+            Console.WriteLine("input a: " + InputJid.Trim());
+            Console.WriteLine("input b: " + InputPassword.Trim());
+
+            _subState = XmppService.StateChanged.Subscribe(async state =>
+            {
+                StatusSekarang = state.ToString();
+                InvokeAsync(StateHasChanged);
+
+                if (state == SessionState.Binded)
+                {
+                    try
+                    {
+                        await KirimPresenceOnline();
+                    }
+                    catch (Exception exPres)
+                    {
+                        Console.WriteLine($"Gagal kirim status online (Aman diredam): {exPres.Message}");
+                    }
+
+                    Console.WriteLine("Binded Kok");
+
+                    if (XmppService.Jid != null && XmppService.Password != null)
+                    {
+                        Console.WriteLine("Yey, Jid dan Password tidak null nih, aku daftarin ya");
+                        UserSession.Jid = InputJid.Trim();
+                        UserSession.Password = InputPassword.Trim();
+                        Console.WriteLine("Jid: " + UserSession.Jid);
+                        Console.WriteLine("Password: " + UserSession.Password);
+                        Console.WriteLine("Kelar nih");
+                    }
+
+                    await InvokeAsync(() =>
+                    {
+                        NavManager.NavigateTo("/chatview", forceLoad: false);
+                    });
+                }
+                else if (state == SessionState.Disconnected && SedangLoading)
+                {
+                    PesanError = "Gagal terhubung. Periksa kembali kredensial atau koneksi server Openfire Anda.";
+                    SedangLoading = false;
+                    await InvokeAsync(StateHasChanged);
+                }
+            });
+            Console.WriteLine(XmppService);
+            await XmppService.ConnectAsync();
+        }
+        catch (Exception ex)
+        {
+            PesanError = $"Gagal terhubung. Periksa kembali kredensial atau koneksi server Openfire Anda. {ex}";
+            SedangLoading = false;
+        }
+    }
+
+    private async Task KirimPresenceOnline()
+    {
+        var presenceElement = new XmppDotNet.Xml.XmppXElement("presence");
+        var showElement = new XmppDotNet.Xml.XmppXElement("show") { Value = "chat" };
+        presenceElement.Add(showElement);
+        await XmppService.SendAsync(presenceElement);
+    }
+}

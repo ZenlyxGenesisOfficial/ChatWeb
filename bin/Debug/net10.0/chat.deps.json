@@ -1,0 +1,187 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "chat/1.0.0": {
+        "dependencies": {
+          "XmppDotNet": "3.3.0",
+          "XmppDotNet.Extensions": "3.3.0",
+          "XmppDotNet.Srv": "3.3.0",
+          "XmppDotNet.Transport.Socket": "3.3.0",
+          "XmppDotNet.Transport.WebSocket": "3.3.0"
+        },
+        "runtime": {
+          "chat.dll": {}
+        }
+      },
+      "DnsClient/1.7.0": {
+        "runtime": {
+          "lib/net6.0/DnsClient.dll": {
+            "assemblyVersion": "1.7.0.0",
+            "fileVersion": "1.7.0.0"
+          }
+        }
+      },
+      "Polly/7.2.3": {
+        "runtime": {
+          "lib/netstandard2.0/Polly.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.2.3.0"
+          }
+        }
+      },
+      "System.Reactive/6.0.1": {
+        "runtime": {
+          "lib/net6.0/System.Reactive.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.1.7420"
+          }
+        }
+      },
+      "XmppDotNet/3.3.0": {
+        "dependencies": {
+          "System.Reactive": "6.0.1",
+          "XmppDotNet.Core": "3.3.0"
+        },
+        "runtime": {
+          "lib/net10.0/XmppDotNet.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.3.0.0"
+          }
+        }
+      },
+      "XmppDotNet.Core/3.3.0": {
+        "dependencies": {
+          "System.Reactive": "6.0.1"
+        },
+        "runtime": {
+          "lib/net10.0/XmppDotNet.Core.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.3.0.0"
+          }
+        }
+      },
+      "XmppDotNet.Extensions/3.3.0": {
+        "dependencies": {
+          "XmppDotNet": "3.3.0"
+        },
+        "runtime": {
+          "lib/net10.0/XmppDotNet.Extensions.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.3.0.0"
+          }
+        }
+      },
+      "XmppDotNet.Srv/3.3.0": {
+        "dependencies": {
+          "DnsClient": "1.7.0",
+          "XmppDotNet.Core": "3.3.0"
+        },
+        "runtime": {
+          "lib/net10.0/XmppDotNet.Srv.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.3.0.0"
+          }
+        }
+      },
+      "XmppDotNet.Transport.Socket/3.3.0": {
+        "dependencies": {
+          "XmppDotNet.Core": "3.3.0",
+          "XmppDotNet.Srv": "3.3.0"
+        },
+        "runtime": {
+          "lib/net10.0/XmppDotNet.Transport.Socket.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.3.0.0"
+          }
+        }
+      },
+      "XmppDotNet.Transport.WebSocket/3.3.0": {
+        "dependencies": {
+          "Polly": "7.2.3",
+          "XmppDotNet.Core": "3.3.0"
+        },
+        "runtime": {
+          "lib/net10.0/XmppDotNet.Transport.WebSocket.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.3.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "chat/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DnsClient/1.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2hrXR83b5g6/ZMJOA36hXp4t56yb7G1mF3Hg6IkrHxvtyaoXRn2WVdgDPN3V8+GugOlUBbTWXgPaka4dXw1QIg==",
+      "path": "dnsclient/1.7.0",
+      "hashPath": "dnsclient.1.7.0.nupkg.sha512"
+    },
+    "Polly/7.2.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DeCY0OFbNdNxsjntr1gTXHJ5pKUwYzp04Er2LLeN3g6pWhffsGuKVfMBLe1lw7x76HrPkLxKEFxBlpRxS2nDEQ==",
+      "path": "polly/7.2.3",
+      "hashPath": "polly.7.2.3.nupkg.sha512"
+    },
+    "System.Reactive/6.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rHaWtKDwCi9qJ3ObKo8LHPMuuwv33YbmQi7TcUK1C264V3MFnOr5Im7QgCTdLniztP3GJyeiSg5x8NqYJFqRmg==",
+      "path": "system.reactive/6.0.1",
+      "hashPath": "system.reactive.6.0.1.nupkg.sha512"
+    },
+    "XmppDotNet/3.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4Zd4n7QhqZ4J0j/mWWihoFRzXV2vPplTAcp69QcL1A7yZGOlP+XfFXPCWBgCWpGZWk/XrfEqQ51rb8hqaDHyUg==",
+      "path": "xmppdotnet/3.3.0",
+      "hashPath": "xmppdotnet.3.3.0.nupkg.sha512"
+    },
+    "XmppDotNet.Core/3.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-d3ZenfbiZxecSRyeiwK/5MfofcPwCuQffJu2VOIFD8VeSMNFkYAdgk6GgEzALR/Jf/6Xz2mse3L7nlgyeGDFFg==",
+      "path": "xmppdotnet.core/3.3.0",
+      "hashPath": "xmppdotnet.core.3.3.0.nupkg.sha512"
+    },
+    "XmppDotNet.Extensions/3.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7t7vXJc5S1+Ii37xNZMjVTJDU+p82psmlD+uNFC/0tB3jah+4Krp0hb8pRYOOQlVZhYoC4AcsJoMhcyY0BA3YQ==",
+      "path": "xmppdotnet.extensions/3.3.0",
+      "hashPath": "xmppdotnet.extensions.3.3.0.nupkg.sha512"
+    },
+    "XmppDotNet.Srv/3.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SGebs7IWgdz0PSWLaVg7Y79T7wtU4fS8HN6/FQBq23IGNIIGdudZFrRbEIJDjDuWQf2Sl0ubte8oGjekSnMASg==",
+      "path": "xmppdotnet.srv/3.3.0",
+      "hashPath": "xmppdotnet.srv.3.3.0.nupkg.sha512"
+    },
+    "XmppDotNet.Transport.Socket/3.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xxYA1HJK/ZAxn3yMZvlOo+kzshKTLToVVg2/8/vkIvLg6VPhHDdZGjKajStYmIAY8FEMcOByW2t6C8d+w7UvuQ==",
+      "path": "xmppdotnet.transport.socket/3.3.0",
+      "hashPath": "xmppdotnet.transport.socket.3.3.0.nupkg.sha512"
+    },
+    "XmppDotNet.Transport.WebSocket/3.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hEHykKpf7kJNAfqY+2S6dELc7Ue5SlJKsSgvOsclw2OLVpaqueBUrD5mYB5cArgzCqEwjhQw41NtmCTpWaWfjg==",
+      "path": "xmppdotnet.transport.websocket/3.3.0",
+      "hashPath": "xmppdotnet.transport.websocket.3.3.0.nupkg.sha512"
+    }
+  }
+}

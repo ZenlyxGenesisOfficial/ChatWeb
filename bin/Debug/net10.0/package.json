@@ -1,0 +1,20 @@
+{
+  "name": "chat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tailwindcss -i ./wwwroot/tailwind.css -o ./wwwroot/tailwind-output.css --minify",
+    "watch": "tailwindcss -i ./wwwroot/tailwind.css -o ./wwwroot/tailwind-output.css --watch",
+    "release": "tailwindcss -i ./wwwroot/tailwind.css -o ./wwwroot/tailwind-output.css --minify"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  }
+}
