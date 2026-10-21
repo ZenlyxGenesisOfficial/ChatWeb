@@ -1,21 +1,33 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\yehezkiel.gunawan\\Downloads\\VisualStudioComm\\RnD1\\chat\\",
+  "WorkspaceRootPath": "D:\\projects\\github\\ChatWeb\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1E4DE371-D40C-F5CA-EB2F-B2B8A79E0F27}|chat.csproj|c:\\users\\yehezkiel.gunawan\\downloads\\visualstudiocomm\\rnd1\\chat\\components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1E4DE371-D40C-F5CA-EB2F-B2B8A79E0F27}|chat.csproj|solutionrelative:components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{1E4DE371-D40C-F5CA-EB2F-B2B8A79E0F27}|chat.csproj|d:\\projects\\github\\chatweb\\services\\xmppclientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E4DE371-D40C-F5CA-EB2F-B2B8A79E0F27}|chat.csproj|solutionrelative:services\\xmppclientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1E4DE371-D40C-F5CA-EB2F-B2B8A79E0F27}|chat.csproj|c:\\users\\yehezkiel.gunawan\\downloads\\visualstudiocomm\\rnd1\\chat\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1E4DE371-D40C-F5CA-EB2F-B2B8A79E0F27}|chat.csproj|d:\\projects\\github\\chatweb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1E4DE371-D40C-F5CA-EB2F-B2B8A79E0F27}|chat.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1E4DE371-D40C-F5CA-EB2F-B2B8A79E0F27}|chat.csproj|c:\\users\\yehezkiel.gunawan\\downloads\\visualstudiocomm\\rnd1\\chat\\components\\pages\\chatview.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{1E4DE371-D40C-F5CA-EB2F-B2B8A79E0F27}|chat.csproj|d:\\projects\\github\\chatweb\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{1E4DE371-D40C-F5CA-EB2F-B2B8A79E0F27}|chat.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E4DE371-D40C-F5CA-EB2F-B2B8A79E0F27}|chat.csproj|d:\\projects\\github\\chatweb\\components\\pages\\chatview.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{1E4DE371-D40C-F5CA-EB2F-B2B8A79E0F27}|chat.csproj|solutionrelative:components\\pages\\chatview.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1E4DE371-D40C-F5CA-EB2F-B2B8A79E0F27}|chat.csproj|c:\\users\\yehezkiel.gunawan\\downloads\\visualstudiocomm\\rnd1\\chat\\session\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1E4DE371-D40C-F5CA-EB2F-B2B8A79E0F27}|chat.csproj|d:\\projects\\github\\chatweb\\components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1E4DE371-D40C-F5CA-EB2F-B2B8A79E0F27}|chat.csproj|solutionrelative:components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E4DE371-D40C-F5CA-EB2F-B2B8A79E0F27}|chat.csproj|d:\\projects\\github\\chatweb\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{1E4DE371-D40C-F5CA-EB2F-B2B8A79E0F27}|chat.csproj|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E4DE371-D40C-F5CA-EB2F-B2B8A79E0F27}|chat.csproj|d:\\projects\\github\\chatweb\\session\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1E4DE371-D40C-F5CA-EB2F-B2B8A79E0F27}|chat.csproj|solutionrelative:session\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -26,42 +38,118 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 9,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Session.cs",
-              "DocumentMoniker": "C:\\Users\\yehezkiel.gunawan\\Downloads\\VisualStudioComm\\RnD1\\chat\\Session\\Session.cs",
-              "RelativeDocumentMoniker": "Session\\Session.cs",
-              "ToolTip": "C:\\Users\\yehezkiel.gunawan\\Downloads\\VisualStudioComm\\RnD1\\chat\\Session\\Session.cs",
-              "RelativeToolTip": "Session\\Session.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAgwBAAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-20T04:38:37.565Z"
+              "$type": "Bookmark",
+              "Name": "ST:323948898:0:{81164725-9a96-4ece-a4cb-440d8fd285e5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0174dea2-fdbe-4ef1-8f99-c0beae78880f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "XmppClientService.cs",
+              "DocumentMoniker": "D:\\projects\\github\\ChatWeb\\Services\\XmppClientService.cs",
+              "RelativeDocumentMoniker": "Services\\XmppClientService.cs",
+              "ToolTip": "D:\\projects\\github\\ChatWeb\\Services\\XmppClientService.cs",
+              "RelativeToolTip": "Services\\XmppClientService.cs",
+              "ViewState": "AgIAAKwAAAAAAAAAAAAnwGYAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-21T05:39:56.132Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\projects\\github\\ChatWeb\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "D:\\projects\\github\\ChatWeb\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAowAkAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-10-21T05:38:51.42Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": ".gitignore",
+              "DocumentMoniker": "D:\\projects\\github\\ChatWeb\\.gitignore",
+              "RelativeDocumentMoniker": ".gitignore",
+              "ToolTip": "D:\\projects\\github\\ChatWeb\\.gitignore",
+              "RelativeToolTip": ".gitignore",
+              "ViewState": "AgIAAK8AAAAAAAAAAAAYwL0AAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-10-21T04:32:53.087Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Session.cs",
+              "DocumentMoniker": "D:\\projects\\github\\ChatWeb\\Session\\Session.cs",
+              "RelativeDocumentMoniker": "Session\\Session.cs",
+              "ToolTip": "D:\\projects\\github\\ChatWeb\\Session\\Session.cs",
+              "RelativeToolTip": "Session\\Session.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAA3wBAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-20T04:38:37.565Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Login.razor",
-              "DocumentMoniker": "C:\\Users\\yehezkiel.gunawan\\Downloads\\VisualStudioComm\\RnD1\\chat\\Components\\Pages\\Login.razor",
+              "DocumentMoniker": "D:\\projects\\github\\ChatWeb\\Components\\Pages\\Login.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\Login.razor",
-              "ToolTip": "C:\\Users\\yehezkiel.gunawan\\Downloads\\VisualStudioComm\\RnD1\\chat\\Components\\Pages\\Login.razor",
+              "ToolTip": "D:\\projects\\github\\ChatWeb\\Components\\Pages\\Login.razor",
               "RelativeToolTip": "Components\\Pages\\Login.razor",
-              "ViewState": "AgIAAFUAAAAAAAAAAAAswHEAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAiwGQAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-10-20T02:25:48.223Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ChatView.razor",
-              "DocumentMoniker": "C:\\Users\\yehezkiel.gunawan\\Downloads\\VisualStudioComm\\RnD1\\chat\\Components\\Pages\\ChatView.razor",
+              "DocumentMoniker": "D:\\projects\\github\\ChatWeb\\Components\\Pages\\ChatView.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\ChatView.razor",
-              "ToolTip": "C:\\Users\\yehezkiel.gunawan\\Downloads\\VisualStudioComm\\RnD1\\chat\\Components\\Pages\\ChatView.razor",
+              "ToolTip": "D:\\projects\\github\\ChatWeb\\Components\\Pages\\ChatView.razor",
               "RelativeToolTip": "Components\\Pages\\ChatView.razor",
-              "ViewState": "AgIAAIAAAAAAAAAAAAAAwJAAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAAAEwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-10-19T08:24:43.826Z",
               "EditorCaption": ""
@@ -70,14 +158,52 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\yehezkiel.gunawan\\Downloads\\VisualStudioComm\\RnD1\\chat\\Program.cs",
+              "DocumentMoniker": "D:\\projects\\github\\ChatWeb\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\yehezkiel.gunawan\\Downloads\\VisualStudioComm\\RnD1\\chat\\Program.cs",
+              "ToolTip": "D:\\projects\\github\\ChatWeb\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABMAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAswBkAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-19T07:12:57.535Z",
               "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:5:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:3:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             }
           ]
         }

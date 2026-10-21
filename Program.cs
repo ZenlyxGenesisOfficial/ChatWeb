@@ -1,9 +1,6 @@
 using chat.Components;
+using chat.Services;
 using chat.Session;
-using XmppDotNet;
-using XmppDotNet.Transport;
-using XmppDotNet.Transport.WebSocket;
-using System.Reactive.Linq;
 
 namespace chat
 {
@@ -17,17 +14,16 @@ namespace chat
             builder.Services.AddRazorComponents()
                 .AddInteractiveServerComponents();
 
-            builder.Services.AddScoped<XmppClient>(sp =>
-            {
-                var client = new XmppClient(conf =>
-                {
-                    var alamatOpenfireLocal = new Uri("ws://sensor:sensor/ws/");
-                    conf.UseWebSocketTransport(new StaticNameResolver(alamatOpenfireLocal));
-                    conf.AutoReconnect = true;
-                });
-                return client;
+            builder.Services.AddOptions<XmppOptions>()
+                .Bind(builder.Configuration.GetSection(XmppOptions.SectionName))
+                .Validate(o => Uri.TryCreate(o.WebSocketUri, UriKind.Absolute, out var uri) && uri.Scheme is "ws" or "wss",
+                    "Xmpp:WebSocketUri in appsettings.json must be a ws:// or wss:// URL, e.g. ws://localhost:7070/ws/")
+                .Validate(o => !string.IsNullOrWhiteSpace(o.Domain),
+                    "Xmpp:Domain in appsettings.json is required, e.g. openfire")
+                .ValidateOnStart();
 
-            });
+            // Scoped = one XMPP connection per Blazor circuit (browser tab), closed when the circuit ends.
+            builder.Services.AddScoped<XmppClientService>();
 
             builder.Services.AddScoped<UserSession>();
 

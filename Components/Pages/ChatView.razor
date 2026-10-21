@@ -1,11 +1,8 @@
 ﻿@page "/chatview"
-@using XmppDotNet
-@using System.Xml.Linq
-@using System.Reactive.Linq
 @using System.Reactive.Disposables
 @implements IDisposable
 @inject chat.Session.UserSession UserSession
-@inject XmppClient XmppService
+@inject XmppClientService XmppService
 @inject NavigationManager NavManager
 @rendermode InteractiveServer
 
@@ -55,6 +52,11 @@
                        @bind="TeksInputPesan" @onkeyup="HandleKeyDown" disabled="@string.IsNullOrEmpty(JidTemanTerpilih)" />
                 <button class="btn btn-primary" @onclick="KirimPesan" disabled="@string.IsNullOrEmpty(JidTemanTerpilih)">Kirim</button>
             </div>
+
+            @if (!string.IsNullOrEmpty(PesanError))
+            {
+                <div class="alert alert-danger mt-2 mb-0">@PesanError</div>
+            }
         </div>
     </div>
 </div>
@@ -63,24 +65,19 @@
     private string StatusKoneksi = "Mencoba mengenali jaringan...";
     private string JidTemanTerpilih = "";
     private string TeksInputPesan = "";
+    private string PesanError = "";
     private List<ModelPesan> ListObrolan = new List<ModelPesan>();
 
     private readonly CompositeDisposable _disposables = new CompositeDisposable();
 
     protected override void OnInitialized()
     {
-        if (UserSession.Jid != "" && UserSession.Password != "")
+        if (string.IsNullOrEmpty(UserSession.Jid) || string.IsNullOrEmpty(UserSession.Password))
         {
-            Console.WriteLine("Sebenernya UserService nya ga null");
-        }
-        else
-        {
-            Console.WriteLine("gagal king");
-            Console.WriteLine("Jid: "+UserSession.Jid);
-            Console.WriteLine("Password: "+UserSession.Password);
             NavManager.NavigateTo("/");
             return;
         }
+
         var subState = XmppService.StateChanged.Subscribe(state =>
         {
             StatusKoneksi = state.ToString();
@@ -88,40 +85,24 @@
         });
         _disposables.Add(subState);
 
-        var subChat = XmppService.XmppXElementReceived
-            .Where(element => element.Name.LocalName == "message")
-            .Subscribe(element =>
+        // Messages arrive on a background thread, so switch to the UI thread before touching the list.
+        var subChat = XmppService.MessageReceived.Subscribe(pesan => InvokeAsync(() =>
+        {
+            if (string.IsNullOrWhiteSpace(JidTemanTerpilih) ||
+                !pesan.From.Equals(XmppService.ToBareJid(JidTemanTerpilih), StringComparison.OrdinalIgnoreCase))
             {
-                XElement xmlElement = element as XElement;
-                if (xmlElement != null)
-                {
-                    var bodyNode = xmlElement.Elements().FirstOrDefault(e => e.Name.LocalName == "body");
-                    if (bodyNode != null)
-                    {
-                        string dariOrang = xmlElement.Attribute("from")?.Value ?? "Anonim";
+                return;
+            }
 
-                        if (dariOrang.Contains("/"))
-                        {
-                            dariOrang = dariOrang.Split('/')[0];
-                        }
-
-                        string isiChat = bodyNode.Value;
-
-                        if (!string.IsNullOrEmpty(JidTemanTerpilih) &&
-                            dariOrang.Equals(JidTemanTerpilih.Trim() + "@openfire", StringComparison.OrdinalIgnoreCase))
-                        {
-                            ListObrolan.Add(new ModelPesan
-                            {
-                                Teks = isiChat,
-                                ApakahSaya = false,
-                                Nama = JidTemanTerpilih.Split(".")[0],
-                                Waktu = DateTime.Now.ToString("HH:mm")
-                            });
-                            InvokeAsync(StateHasChanged);
-                        }
-                    }
-                }
+            ListObrolan.Add(new ModelPesan
+            {
+                Teks = pesan.Body,
+                ApakahSaya = false,
+                Nama = JidTemanTerpilih.Split(".")[0],
+                Waktu = pesan.Timestamp.ToString("HH:mm")
             });
+            StateHasChanged();
+        }));
         _disposables.Add(subChat);
     }
 
@@ -129,20 +110,22 @@
     {
         if (!string.IsNullOrEmpty(TeksInputPesan) && !string.IsNullOrEmpty(JidTemanTerpilih))
         {
-            string targetJid = JidTemanTerpilih.Trim() + "@openfire";
             string pesanKirim = TeksInputPesan;
 
             TeksInputPesan = "";
+            PesanError = "";
 
-            var netXmlElement = new XElement("message",
-                new XAttribute("type", "chat"),
-                new XAttribute("to", targetJid),
-                new XElement("body", pesanKirim)
-            );
-
-            var xmppElement = new XmppDotNet.Xml.XmppXElement(netXmlElement);
-
-            await XmppService.SendAsync(xmppElement);
+            try
+            {
+                await XmppService.SendChatMessageAsync(JidTemanTerpilih, pesanKirim);
+            }
+            catch (Exception)
+            {
+                // Put the text back so it isn't lost, e.g. while the connection is reconnecting.
+                TeksInputPesan = pesanKirim;
+                PesanError = "Pesan gagal terkirim. Periksa koneksi lalu coba lagi.";
+                return;
+            }
 
             ListObrolan.Add(new ModelPesan
             {

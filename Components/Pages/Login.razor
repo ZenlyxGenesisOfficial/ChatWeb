@@ -1,7 +1,6 @@
 ﻿@page "/"
-@using XmppDotNet
-@using System.Reactive.Linq
-@inject XmppClient XmppService
+@implements IDisposable
+@inject XmppClientService XmppService
 @inject NavigationManager NavManager
 @inject chat.Session.UserSession UserSession
 @rendermode InteractiveServer
@@ -52,9 +51,19 @@
 
     private dynamic loginModel = new System.Dynamic.ExpandoObject();
 
+    protected override void OnInitialized()
+    {
+        // Shows login progress (Connected, Authenticating, Binding, ...) on the button.
+        _subState = XmppService.StateChanged.Subscribe(state =>
+        {
+            StatusSekarang = state.ToString();
+            InvokeAsync(StateHasChanged);
+        });
+    }
+
     private async Task ProsesLogin()
     {
-        if (string.IsNullOrEmpty(InputJid) || string.IsNullOrEmpty(InputPassword))
+        if (string.IsNullOrWhiteSpace(InputJid) || string.IsNullOrEmpty(InputPassword))
         {
             PesanError = "Username dan Password tidak boleh kosong!";
             return;
@@ -65,66 +74,30 @@
 
         try
         {
-            XmppService.Jid = InputJid.Trim();
-            XmppService.Password = InputPassword;
-            Console.WriteLine("input a: " + InputJid.Trim());
-            Console.WriteLine("input b: " + InputPassword.Trim());
+            // Completes once logged in and online; throws if the login fails.
+            await XmppService.ConnectAsync(InputJid, InputPassword);
 
-            _subState = XmppService.StateChanged.Subscribe(async state =>
-            {
-                StatusSekarang = state.ToString();
-                InvokeAsync(StateHasChanged);
-
-                if (state == SessionState.Binded)
-                {
-                    try
-                    {
-                        await KirimPresenceOnline();
-                    }
-                    catch (Exception exPres)
-                    {
-                        Console.WriteLine($"Gagal kirim status online (Aman diredam): {exPres.Message}");
-                    }
-
-                    Console.WriteLine("Binded Kok");
-
-                    if (XmppService.Jid != null && XmppService.Password != null)
-                    {
-                        Console.WriteLine("Yey, Jid dan Password tidak null nih, aku daftarin ya");
-                        UserSession.Jid = InputJid.Trim();
-                        UserSession.Password = InputPassword.Trim();
-                        Console.WriteLine("Jid: " + UserSession.Jid);
-                        Console.WriteLine("Password: " + UserSession.Password);
-                        Console.WriteLine("Kelar nih");
-                    }
-
-                    await InvokeAsync(() =>
-                    {
-                        NavManager.NavigateTo("/chatview", forceLoad: false);
-                    });
-                }
-                else if (state == SessionState.Disconnected && SedangLoading)
-                {
-                    PesanError = "Gagal terhubung. Periksa kembali kredensial atau koneksi server Openfire Anda.";
-                    SedangLoading = false;
-                    await InvokeAsync(StateHasChanged);
-                }
-            });
-            Console.WriteLine(XmppService);
-            await XmppService.ConnectAsync();
+            UserSession.Jid = XmppService.ToBareJid(InputJid);
+            UserSession.Password = InputPassword;
+            NavManager.NavigateTo("/chatview");
         }
-        catch (Exception ex)
+        catch (XmppDotNet.AuthenticationException)
         {
-            PesanError = $"Gagal terhubung. Periksa kembali kredensial atau koneksi server Openfire Anda. {ex}";
+            PesanError = "Login gagal: username atau password salah.";
+        }
+        catch (Exception)
+        {
+            // Details are logged by XmppClientService.
+            PesanError = "Gagal terhubung. Periksa kembali kredensial atau koneksi server Openfire Anda.";
+        }
+        finally
+        {
             SedangLoading = false;
         }
     }
 
-    private async Task KirimPresenceOnline()
+    public void Dispose()
     {
-        var presenceElement = new XmppDotNet.Xml.XmppXElement("presence");
-        var showElement = new XmppDotNet.Xml.XmppXElement("show") { Value = "chat" };
-        presenceElement.Add(showElement);
-        await XmppService.SendAsync(presenceElement);
+        _subState?.Dispose();
     }
 }
