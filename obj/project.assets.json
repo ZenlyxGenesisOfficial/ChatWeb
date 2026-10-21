@@ -349,23 +349,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\yehezkiel.gunawan\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\herdantio.sindhunata\\.nuget\\packages\\": {},
+    "D:\\program_files\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\yehezkiel.gunawan\\Downloads\\VisualStudioComm\\RnD1\\chat\\chat.csproj",
+      "projectUniqueName": "D:\\projects\\github\\ChatWeb\\chat.csproj",
       "projectName": "chat",
-      "projectPath": "C:\\Users\\yehezkiel.gunawan\\Downloads\\VisualStudioComm\\RnD1\\chat\\chat.csproj",
-      "packagesPath": "C:\\Users\\yehezkiel.gunawan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\yehezkiel.gunawan\\Downloads\\VisualStudioComm\\RnD1\\chat\\obj\\",
+      "projectPath": "D:\\projects\\github\\ChatWeb\\chat.csproj",
+      "packagesPath": "C:\\Users\\herdantio.sindhunata\\.nuget\\packages\\",
+      "outputPath": "D:\\projects\\github\\ChatWeb\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "D:\\program_files\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\yehezkiel.gunawan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\herdantio.sindhunata\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
